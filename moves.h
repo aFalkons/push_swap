@@ -1,30 +1,32 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   push_swap.h                                        :+:      :+:    :+:   */
+/*   moves.h                                            :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: afalconi <afalconi@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2023/04/21 01:38:31 by afalconi          #+#    #+#             */
-/*   Updated: 2023/05/23 18:13:25 by afalconi         ###   ########.fr       */
+/*   Created: 2023/05/23 16:17:54 by afalconi          #+#    #+#             */
+/*   Updated: 2023/05/23 16:56:36 by afalconi         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#ifndef PUSH_SWAP_H
-# define PUSH_SWAP_H
+#ifndef MOVES_H
+# define MOVES_H
 
-# include <fcntl.h>
-# include <stdio.h>
-# include <stdlib.h>
-# include <sys/types.h>
 # include <unistd.h>
-# include <string.h>
 # include <stdlib.h>
-#include "moves.h"
+# include <stdio.h>
+# include <limits.h>
 
-void	ft_atoicalc(int *som, int x, int i, const char *str);
-int		ft_atoi(const char *str);
-void	fillstack(int ac, char **av, t_ps *ps);
+typedef struct s_ps {
+	int	*stcka;
+	int	*stckb;
+	int	ntot;
+	int	size_a;
+	int	size_b;
+}	t_ps;
+
+void	*ft_malloc(int bytes);
 void	ss(t_ps *ps, int f);
 void	sa(t_ps *ps, int f);
 void	sb(t_ps *ps, int f);
@@ -36,5 +38,6 @@ void	rr(t_ps *ps, int f);
 void	rra(t_ps *ps, int f);
 void	rrb(t_ps *ps, int f);
 void	rrr(t_ps *ps, int f);
+void	set_b(t_ps *ps, int size);
 
 #endif
