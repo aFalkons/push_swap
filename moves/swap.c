@@ -6,13 +6,13 @@
 /*   By: afalconi <afalconi@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/05/22 05:48:07 by afalconi          #+#    #+#             */
-/*   Updated: 2023/05/23 16:43:35 by afalconi         ###   ########.fr       */
+/*   Updated: 2023/05/24 23:14:11 by afalconi         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "moves.h"
+#include "../moves.h"
 
-void	sa(t_ps *ps, int f)
+void	sa(t_moves *ps, int f)
 {
 	int	x;
 
@@ -25,7 +25,7 @@ void	sa(t_ps *ps, int f)
 	if (f == 1)
 		write(1, "sa\n", 3);
 }
-void	sb(t_ps *ps, int f)
+void	sb(t_moves *ps, int f)
 {
 	int	x;
 
@@ -38,7 +38,7 @@ void	sb(t_ps *ps, int f)
 	if (f == 1)
 		write(1, "sb\n", 3);
 }
-void	ss(t_ps *ps, int f)
+void	ss(t_moves *ps, int f)
 {
 	sa(ps, 0);
 	sb(ps, 0);

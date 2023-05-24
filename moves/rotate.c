@@ -6,13 +6,13 @@
 /*   By: afalconi <afalconi@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/05/22 05:48:09 by afalconi          #+#    #+#             */
-/*   Updated: 2023/05/23 16:43:42 by afalconi         ###   ########.fr       */
+/*   Updated: 2023/05/24 23:14:02 by afalconi         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "moves.h"
+#include "../moves.h"
 
-void	ra(t_ps *ps, int f)
+void	ra(t_moves *ps, int f)
 {
 	int	x;
 	int	cont;
@@ -25,7 +25,7 @@ void	ra(t_ps *ps, int f)
 	if (f == 1)
 		write(1, "ra\n", 3);
 }
-void	rb(t_ps *ps, int f)
+void	rb(t_moves *ps, int f)
 {
 	int	x;
 	int	cont;
@@ -39,7 +39,7 @@ void	rb(t_ps *ps, int f)
 		write(1, "rb\n", 3);
 }
 
-void	rr(t_ps *ps, int f)
+void	rr(t_moves *ps, int f)
 {
 	ra(ps, 0);
 	rb(ps, 0);

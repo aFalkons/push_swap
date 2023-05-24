@@ -6,7 +6,7 @@
 /*   By: afalconi <afalconi@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/05/23 16:17:54 by afalconi          #+#    #+#             */
-/*   Updated: 2023/05/23 16:56:36 by afalconi         ###   ########.fr       */
+/*   Updated: 2023/05/24 23:11:52 by afalconi         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,26 +18,26 @@
 # include <stdio.h>
 # include <limits.h>
 
-typedef struct s_ps {
+typedef struct s_moves {
 	int	*stcka;
 	int	*stckb;
 	int	ntot;
 	int	size_a;
 	int	size_b;
-}	t_ps;
+}	t_moves;
 
 void	*ft_malloc(int bytes);
-void	ss(t_ps *ps, int f);
-void	sa(t_ps *ps, int f);
-void	sb(t_ps *ps, int f);
-void	pa(t_ps *ps, int f);
-void	pb(t_ps *ps, int f);
-void	ra(t_ps *ps, int f);
-void	rb(t_ps *ps, int f);
-void	rr(t_ps *ps, int f);
-void	rra(t_ps *ps, int f);
-void	rrb(t_ps *ps, int f);
-void	rrr(t_ps *ps, int f);
-void	set_b(t_ps *ps, int size);
+void	ss(t_moves *ps, int f);
+void	sa(t_moves *ps, int f);
+void	sb(t_moves *ps, int f);
+void	pa(t_moves *ps, int f);
+void	pb(t_moves *ps, int f);
+void	ra(t_moves *ps, int f);
+void	rb(t_moves *ps, int f);
+void	rr(t_moves *ps, int f);
+void	rra(t_moves *ps, int f);
+void	rrb(t_moves *ps, int f);
+void	rrr(t_moves *ps, int f);
+void	set_b(t_moves *ps, int size);
 
 #endif
