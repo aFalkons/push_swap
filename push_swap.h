@@ -6,7 +6,7 @@
 /*   By: afalconi <afalconi@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/04/21 01:38:31 by afalconi          #+#    #+#             */
-/*   Updated: 2023/05/24 23:21:52 by afalconi         ###   ########.fr       */
+/*   Updated: 2023/05/25 23:15:15 by afalconi         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -22,8 +22,9 @@
 # include <stdlib.h>
 #include "moves.h"
 
-void	setup(t_moves ps, int ac, char **av)
-int		ft_atol(const char *str);
-int		ft_atoi(const char *str);
+void	setup(t_pushsw *ps, int ac, char **av);
+int		ft_atol(char *str);
+int		ft_strlen(char *str);
+void	ft_exit(char *str, int f);
 
 #endif

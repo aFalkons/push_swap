@@ -6,7 +6,7 @@
 /*   By: afalconi <afalconi@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/05/23 16:17:54 by afalconi          #+#    #+#             */
-/*   Updated: 2023/05/24 23:11:52 by afalconi         ###   ########.fr       */
+/*   Updated: 2023/05/25 22:40:46 by afalconi         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,12 +19,17 @@
 # include <limits.h>
 
 typedef struct s_moves {
-	int	*stcka;
-	int	*stckb;
+	int	n;
+	struct s_moves *next;
+	struct s_moves *prev;
+}	t_moves;
+
+typedef struct s_pushsw {
+	t_moves *mov;
 	int	ntot;
 	int	size_a;
 	int	size_b;
-}	t_moves;
+}	t_pushsw;
 
 void	*ft_malloc(int bytes);
 void	ss(t_moves *ps, int f);

@@ -6,7 +6,7 @@
 #    By: afalconi <afalconi@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2023/05/22 05:41:09 by afalconi          #+#    #+#              #
-#    Updated: 2023/05/24 21:04:52 by afalconi         ###   ########.fr        #
+#    Updated: 2023/05/25 22:21:47 by afalconi         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -29,7 +29,6 @@ NAME = push_swap
 all : $(NAME)
 
 $(NAME) : $(OBJ)
-	cp moves/moves.h ./push_swap
 	$(CC) $(FLAGS) $(OBJ) -o $(NAME)
 
 

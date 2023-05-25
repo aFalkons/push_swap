@@ -6,13 +6,13 @@
 /*   By: afalconi <afalconi@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/05/22 05:58:08 by afalconi          #+#    #+#             */
-/*   Updated: 2023/05/24 23:41:40 by afalconi         ###   ########.fr       */
+/*   Updated: 2023/05/25 23:18:40 by afalconi         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "push_swap.h"
 
-int		ft_atol(const char *str)
+int		ft_atol(char *str)
 {
 	int				seg;
 	long long		som;
@@ -36,8 +36,22 @@ int		ft_atol(const char *str)
 			break ;
 		i++;
 	}
-	if(som > INT_MAX || som < INT_MIN)
+	if (som > INT_MAX || som < INT_MIN)
 		write(2, "Error\n", 6);
-	som = som * seg;
-	return(som);
+	return(som * seg);
+}
+
+void	ft_exit(char *str, int f)
+{
+	write(2, str, ft_strlen(str));
+	exit(1);
+}
+int	ft_strlen(char *str)
+{
+	int i;
+
+	i = 0;
+	while(str[i])
+		i++;
+	return(i);
 }
