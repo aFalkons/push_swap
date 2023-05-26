@@ -6,7 +6,7 @@
 /*   By: afalconi <afalconi@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/05/22 05:58:08 by afalconi          #+#    #+#             */
-/*   Updated: 2023/05/26 20:28:55 by afalconi         ###   ########.fr       */
+/*   Updated: 2023/05/26 21:27:21 by afalconi         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -72,10 +72,16 @@ void	ft_free(t_pushsw *ps)
 {
 	while (ps->mov->next)
 		ps->mov = ps->mov->next;
+	printf("VAL1 %d\n", ps->mov->n);
 	ps->mov = ps->mov->prev;
 	while (ps->mov->prev)
 	{
 		free(ps->mov->next);
+		ps->mov->next = NULL;
 		ps->mov = ps->mov->prev;
 	}
+	free(ps->mov->next);
+	ps->mov->next = NULL;
+	free(ps->mov);
+	ps->mov = NULL;
 }

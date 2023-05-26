@@ -6,7 +6,7 @@
 /*   By: afalconi <afalconi@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/05/22 05:42:17 by afalconi          #+#    #+#             */
-/*   Updated: 2023/05/26 20:18:58 by afalconi         ###   ########.fr       */
+/*   Updated: 2023/05/26 20:39:22 by afalconi         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,5 +18,6 @@ int main(int ac, char **av)
 
 	setup(&ps, ac, av);
 	printf("%d\n", ps.mov->n);
+	ft_free(&ps);
 	return (0);
 }
