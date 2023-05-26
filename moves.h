@@ -6,7 +6,7 @@
 /*   By: afalconi <afalconi@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/05/23 16:17:54 by afalconi          #+#    #+#             */
-/*   Updated: 2023/05/25 22:40:46 by afalconi         ###   ########.fr       */
+/*   Updated: 2023/05/26 19:21:38 by afalconi         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -31,7 +31,6 @@ typedef struct s_pushsw {
 	int	size_b;
 }	t_pushsw;
 
-void	*ft_malloc(int bytes);
 void	ss(t_moves *ps, int f);
 void	sa(t_moves *ps, int f);
 void	sb(t_moves *ps, int f);

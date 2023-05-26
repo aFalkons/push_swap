@@ -6,13 +6,13 @@
 /*   By: afalconi <afalconi@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/05/22 05:58:08 by afalconi          #+#    #+#             */
-/*   Updated: 2023/05/25 23:18:40 by afalconi         ###   ########.fr       */
+/*   Updated: 2023/05/26 20:28:55 by afalconi         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "push_swap.h"
 
-int		ft_atol(char *str)
+int		ft_atol(char *str, t_pushsw *ps)
 {
 	int				seg;
 	long long		som;
@@ -37,13 +37,16 @@ int		ft_atol(char *str)
 		i++;
 	}
 	if (som > INT_MAX || som < INT_MIN)
-		write(2, "Error\n", 6);
+		ft_exit("Error\nbad input", ps);
 	return(som * seg);
 }
 
-void	ft_exit(char *str, int f)
+void	ft_exit(char *str, t_pushsw *ps)
 {
-	write(2, str, ft_strlen(str));
+	if (ps == NULL)
+		write(2, str, ft_strlen(str));
+	else
+		ft_free(ps);
 	exit(1);
 }
 int	ft_strlen(char *str)
@@ -54,4 +57,25 @@ int	ft_strlen(char *str)
 	while(str[i])
 		i++;
 	return(i);
+}
+
+void	*ft_malloc(int bytes)
+{
+	void	*var;
+
+	var = malloc(bytes);
+	if (!var)
+		exit(0);
+	return (var);
+}
+void	ft_free(t_pushsw *ps)
+{
+	while (ps->mov->next)
+		ps->mov = ps->mov->next;
+	ps->mov = ps->mov->prev;
+	while (ps->mov->prev)
+	{
+		free(ps->mov->next);
+		ps->mov = ps->mov->prev;
+	}
 }

@@ -6,7 +6,7 @@
 /*   By: afalconi <afalconi@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/05/22 05:42:17 by afalconi          #+#    #+#             */
-/*   Updated: 2023/05/25 23:06:30 by afalconi         ###   ########.fr       */
+/*   Updated: 2023/05/26 20:18:58 by afalconi         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,5 +17,6 @@ int main(int ac, char **av)
 	t_pushsw ps;
 
 	setup(&ps, ac, av);
+	printf("%d\n", ps.mov->n);
 	return (0);
 }
