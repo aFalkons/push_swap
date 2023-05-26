@@ -1,9 +1,0 @@
-sk a: [1 , 10] [2 , 42] [3 , 10000] [4 , 3] [5 , 7] [6 , 9]
-
-sk a:
-
-https://cad.onshape.com/documents/aa597237141ac46d725b1f5f/w/b71f42be4135ca5c97fcbb43/e/25ec868989db19ca8d3a5872?renderMode=0&uiState=646cbf39ee1491747a909374
-
-B : 1 44 22 66 43 77 99 54
-A : 3 5 1 545 54 67 87 8 98 
-
