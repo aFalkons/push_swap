@@ -6,7 +6,7 @@
 /*   By: afalconi <afalconi@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/05/23 16:17:54 by afalconi          #+#    #+#             */
-/*   Updated: 2023/05/26 19:21:38 by afalconi         ###   ########.fr       */
+/*   Updated: 2023/05/26 22:55:39 by afalconi         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -25,23 +25,23 @@ typedef struct s_moves {
 }	t_moves;
 
 typedef struct s_pushsw {
-	t_moves *mov;
+	t_moves *ska;
+	t_moves *skb;
 	int	ntot;
 	int	size_a;
 	int	size_b;
 }	t_pushsw;
 
-void	ss(t_moves *ps, int f);
-void	sa(t_moves *ps, int f);
-void	sb(t_moves *ps, int f);
-void	pa(t_moves *ps, int f);
-void	pb(t_moves *ps, int f);
-void	ra(t_moves *ps, int f);
-void	rb(t_moves *ps, int f);
-void	rr(t_moves *ps, int f);
-void	rra(t_moves *ps, int f);
-void	rrb(t_moves *ps, int f);
-void	rrr(t_moves *ps, int f);
-void	set_b(t_moves *ps, int size);
+void	ss(t_pushsw *ps, int f);
+void	sa(t_pushsw *ps, int f);
+void	sb(t_pushsw *ps, int f);
+void	pa(t_pushsw *ps, int f);
+void	pb(t_pushsw *ps, int f);
+void	ra(t_pushsw *ps, int f);
+void	rb(t_pushsw *ps, int f);
+void	rr(t_pushsw *ps, int f);
+void	rra(t_pushsw *ps, int f);
+void	rrb(t_pushsw *ps, int f);
+void	rrr(t_pushsw *ps, int f);
 
 #endif

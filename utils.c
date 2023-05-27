@@ -6,7 +6,7 @@
 /*   By: afalconi <afalconi@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/05/22 05:58:08 by afalconi          #+#    #+#             */
-/*   Updated: 2023/05/26 21:27:21 by afalconi         ###   ########.fr       */
+/*   Updated: 2023/05/26 22:45:47 by afalconi         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -70,18 +70,17 @@ void	*ft_malloc(int bytes)
 }
 void	ft_free(t_pushsw *ps)
 {
-	while (ps->mov->next)
-		ps->mov = ps->mov->next;
-	printf("VAL1 %d\n", ps->mov->n);
-	ps->mov = ps->mov->prev;
-	while (ps->mov->prev)
+	while (ps->ska->next)
+		ps->ska = ps->ska->next;
+	ps->ska = ps->ska->prev;
+	while (ps->ska->prev)
 	{
-		free(ps->mov->next);
-		ps->mov->next = NULL;
-		ps->mov = ps->mov->prev;
+		free(ps->ska->next);
+		ps->ska->next = NULL;
+		ps->ska = ps->ska->prev;
 	}
-	free(ps->mov->next);
-	ps->mov->next = NULL;
-	free(ps->mov);
-	ps->mov = NULL;
+	free(ps->ska->next);
+	ps->ska->next = NULL;
+	free(ps->ska);
+	ps->ska = NULL;
 }
