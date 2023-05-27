@@ -6,7 +6,7 @@
 /*   By: afalconi <afalconi@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/04/21 01:38:31 by afalconi          #+#    #+#             */
-/*   Updated: 2023/05/26 20:20:09 by afalconi         ###   ########.fr       */
+/*   Updated: 2023/05/27 11:18:03 by afalconi         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -28,5 +28,8 @@ int		ft_strlen(char *str);
 void	*ft_malloc(int bytes);
 void	ft_exit(char *str, t_pushsw *ps);
 void	ft_free(t_pushsw *ps);
+void	fristswap(t_pushsw *ps);
+void	sort3(t_pushsw *ps);
+void	sav_pa(t_pushsw *ps, int f);
 
 #endif

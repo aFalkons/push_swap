@@ -6,7 +6,7 @@
 /*   By: afalconi <afalconi@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/05/23 16:17:54 by afalconi          #+#    #+#             */
-/*   Updated: 2023/05/26 22:55:39 by afalconi         ###   ########.fr       */
+/*   Updated: 2023/05/27 08:09:11 by afalconi         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -27,7 +27,6 @@ typedef struct s_moves {
 typedef struct s_pushsw {
 	t_moves *ska;
 	t_moves *skb;
-	int	ntot;
 	int	size_a;
 	int	size_b;
 }	t_pushsw;
