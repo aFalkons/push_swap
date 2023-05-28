@@ -6,7 +6,7 @@
 /*   By: afalconi <afalconi@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/05/24 21:04:57 by afalconi          #+#    #+#             */
-/*   Updated: 2023/05/26 23:55:36 by afalconi         ###   ########.fr       */
+/*   Updated: 2023/05/28 17:15:19 by afalconi         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -25,7 +25,6 @@ void	setup(t_pushsw *ps, int ac, char **av)
 	ps->size_b = 0;
 	ps->ska = ft_malloc(sizeof(t_moves));
 	ps->ska->prev = NULL;
-	ps->ska->next = NULL;
 	ps->ska->n = ft_atol(av[1], ps);
 	while (av[++i])
 	{
@@ -33,7 +32,6 @@ void	setup(t_pushsw *ps, int ac, char **av)
 		ps->ska->next = ft_malloc(sizeof(t_moves));
 		ps->ska = ps->ska->next;
 		ps->ska->prev = temp;
-		ps->ska->next = NULL;
 		ps->ska->n = ft_atol(av[i], ps);
 	}
 	while (ps->ska->prev)

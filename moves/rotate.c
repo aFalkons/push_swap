@@ -6,7 +6,7 @@
 /*   By: afalconi <afalconi@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/05/22 05:48:09 by afalconi          #+#    #+#             */
-/*   Updated: 2023/05/27 02:35:51 by afalconi         ###   ########.fr       */
+/*   Updated: 2023/05/28 19:08:35 by afalconi         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -21,14 +21,14 @@ void	ra(t_pushsw *ps, int f)
 	ps->ska->prev = NULL;
 	while (ps->ska->next)
 		ps->ska = ps->ska->next;
-	temp->prev = ps->ska;
 	ps->ska->next = temp;
-	temp = ps->ska;
-	ps->ska = ps->ska->next;
-	ps->ska->prev = temp;
-	ps->ska->next = NULL;
+	temp->prev = ps->ska;
+	temp->next = NULL;
 	while (ps->ska->prev)
+	{
+		printf("%d\n", ps->ska->n);
 		ps->ska = ps->ska->prev;
+	}
 	if (f == 0)
 		write(1, "ra\n", 3);
 }
