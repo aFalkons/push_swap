@@ -6,7 +6,7 @@
 /*   By: afalconi <afalconi@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/05/27 08:14:38 by afalconi          #+#    #+#             */
-/*   Updated: 2023/05/29 14:25:53 by afalconi         ###   ########.fr       */
+/*   Updated: 2023/05/29 17:12:11 by afalconi         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,11 +16,13 @@ void	fristswap(t_pushsw *ps)
 {
 	int i;
 
-	i = -3;
-	while (++i <= ps->size_a)
+	i = 0;
+	while (++i < ps->size_a)
 		pa(ps, 0);
 	sort3(ps);
-	puttop(ps);
+	// puttop(ps);
+	printf("GG%d\n", cksort(ps));
+
 }
 
 void	sort3(t_pushsw *ps)
@@ -64,4 +66,31 @@ void	puttop(t_pushsw *ps)
 	}
 	while(ps->skb->prev)
 		ps->skb = ps->skb->prev;
+}
+
+int		cksort(t_pushsw *ps)
+{
+	t_moves	*copyb;
+	t_moves	*copya;
+	int		pos;
+	int		cont;
+
+	copyb = ps->skb;
+	copya = ps->ska;
+	cont = 1;
+	pos = cont;
+	while (copya->next)
+	{
+		if(copya->n < copyb->n && copya->next->n > copyb->n)
+			pos = cont;
+		copya = copya->next;
+		cont ++;
+		if (cont <= ps->size_a / 2){
+			printf("diocane\n");
+			cont = 1;
+		}
+	}
+	if (copya->n < copyb->n)
+		pos = cont;
+	return(pos);
 }
