@@ -6,7 +6,7 @@
 /*   By: afalconi <afalconi@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/05/27 08:14:38 by afalconi          #+#    #+#             */
-/*   Updated: 2023/05/28 23:39:30 by afalconi         ###   ########.fr       */
+/*   Updated: 2023/05/29 14:25:53 by afalconi         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,12 +14,11 @@
 
 void	fristswap(t_pushsw *ps)
 {
-	while (ps->ska->next)
+	int i;
+
+	i = -3;
+	while (++i <= ps->size_a)
 		pa(ps, 0);
-	pa(ps, 0);
-	pb(ps, 0);
-	pb(ps, 0);
-	pb(ps, 0);
 	sort3(ps);
 	puttop(ps);
 }

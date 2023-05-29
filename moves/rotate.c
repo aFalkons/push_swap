@@ -6,7 +6,7 @@
 /*   By: afalconi <afalconi@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/05/22 05:48:09 by afalconi          #+#    #+#             */
-/*   Updated: 2023/05/28 19:54:45 by afalconi         ###   ########.fr       */
+/*   Updated: 2023/05/29 14:18:16 by afalconi         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,9 +17,7 @@ void	ra(t_pushsw *ps, int f)
 	t_moves *temp;
 
 	temp = ps->ska;
-
-	ps->ska = ps->ska->next;
-	ps->ska->prev = NULL;
+	ps->ska->next->prev = NULL;
 	while (ps->ska->next)
 		ps->ska = ps->ska->next;
 	temp->prev = ps->ska;
@@ -35,16 +33,12 @@ void	rb(t_pushsw *ps, int f)
 	t_moves *temp;
 
 	temp = ps->skb;
-	ps->skb = ps->skb->next;
-	ps->skb->prev = NULL;
+	ps->skb->next->prev = NULL;
 	while (ps->skb->next)
 		ps->skb = ps->skb->next;
 	temp->prev = ps->skb;
+	temp->next = NULL;
 	ps->skb->next = temp;
-	temp = ps->skb;
-	ps->skb = ps->skb->next;
-	ps->skb->prev = temp;
-	ps->skb->next = NULL;
 	while (ps->skb->prev)
 		ps->skb = ps->skb->prev;
 	if (f == 0)
