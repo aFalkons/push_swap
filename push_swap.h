@@ -6,7 +6,7 @@
 /*   By: afalconi <afalconi@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/04/21 01:38:31 by afalconi          #+#    #+#             */
-/*   Updated: 2023/05/29 14:52:26 by afalconi         ###   ########.fr       */
+/*   Updated: 2023/05/30 17:51:42 by afalconi         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -32,5 +32,7 @@ void	fristswap(t_pushsw *ps);
 void	sort3(t_pushsw *ps);
 void	puttop(t_pushsw *ps);
 int		cksort(t_pushsw *ps);
+void	maxemin(t_pushsw *ps);
+int		ckpusha(t_pushsw *ps);
 
 #endif

@@ -6,7 +6,7 @@
 /*   By: afalconi <afalconi@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/05/24 21:04:57 by afalconi          #+#    #+#             */
-/*   Updated: 2023/05/28 17:15:19 by afalconi         ###   ########.fr       */
+/*   Updated: 2023/05/29 18:58:35 by afalconi         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -34,6 +34,9 @@ void	setup(t_pushsw *ps, int ac, char **av)
 		ps->ska->prev = temp;
 		ps->ska->n = ft_atol(av[i], ps);
 	}
+	ps->ska->next = NULL;
 	while (ps->ska->prev)
+	{
 		ps->ska = ps->ska->prev;
+	}
 }
