@@ -6,7 +6,7 @@
 #    By: afalconi <afalconi@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2023/05/22 05:41:09 by afalconi          #+#    #+#              #
-#    Updated: 2023/05/31 19:11:14 by afalconi         ###   ########.fr        #
+#    Updated: 2023/06/03 21:37:32 by afalconi         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -18,7 +18,8 @@ CFILES =	main.c \
 			moves/swap.c \
 			utils.c \
 			setup.c \
-			algoritm/sort.c
+			algoritm/inizialsort.c \
+			algoritm/realswap.c
 OBJ = $(CFILES:.c=.o)
 
 CC = @ gcc
