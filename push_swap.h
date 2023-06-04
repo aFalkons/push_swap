@@ -6,7 +6,7 @@
 /*   By: afalconi <afalconi@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/04/21 01:38:31 by afalconi          #+#    #+#             */
-/*   Updated: 2023/06/03 22:31:12 by afalconi         ###   ########.fr       */
+/*   Updated: 2023/06/04 21:09:02 by afalconi         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -37,5 +37,12 @@ void	ckpusha(t_pushsw *ps);
 void	inizmy(t_pushsw *ps);
 void	exeputtop(t_pushsw *ps);
 void	exemos(int f, int cont, t_pushsw *ps);
+char	**ckinput(t_pushsw *ps, int ac, char **av, int *f);
+void	ckinput2(char **av, t_pushsw *ps);
+static size_t	get_word(char *s, char c);
+char	**ft_split(char *s, char c);
+char	*ft_substr(char *s, int start, size_t len);
+void	freedellacosa(char	**str);
+void	reorder(t_pushsw *ps);
 
 #endif

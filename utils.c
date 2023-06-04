@@ -6,7 +6,7 @@
 /*   By: afalconi <afalconi@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/05/22 05:58:08 by afalconi          #+#    #+#             */
-/*   Updated: 2023/06/03 21:52:24 by afalconi         ###   ########.fr       */
+/*   Updated: 2023/06/04 19:29:20 by afalconi         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -82,17 +82,5 @@ void	ft_free(t_pushsw *ps)
 	free(ps->ska->next);
 	ps->ska->next = NULL;
 	free(ps->ska);
-	while (ps->skb->next)
-		ps->skb = ps->skb->next;
-	ps->skb = ps->skb->prev;
-	while (ps->skb->prev)
-	{
-		free(ps->skb->next);
-		ps->skb->next = NULL;
-		ps->skb = ps->skb->prev;
-	}
-	free(ps->skb->next);
-	ps->skb->next = NULL;
-	free(ps->skb);
-	ps->skb = NULL;
+	ps->ska = NULL;
 }

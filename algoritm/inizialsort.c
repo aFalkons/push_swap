@@ -6,7 +6,7 @@
 /*   By: afalconi <afalconi@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/06/03 21:25:16 by afalconi          #+#    #+#             */
-/*   Updated: 2023/06/03 22:49:01 by afalconi         ###   ########.fr       */
+/*   Updated: 2023/06/04 20:52:17 by afalconi         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -31,8 +31,6 @@ void	fristswap(t_pushsw *ps)
 			ra(ps, 0);
 	}
 	sort3(ps);
-	puttop(ps);
-	exeputtop(ps);
 }
 
 void	inizmy(t_pushsw *ps)
@@ -90,7 +88,7 @@ void	puttop(t_pushsw *ps)
 	int cont;
 
 	cont = ps->size_b;
-	while (cont > 1)
+	while (cont > 0)
 	{
 		ckpusha(ps);
 		if (cont >= ps->size_b / 2)
@@ -112,7 +110,8 @@ void	puttop(t_pushsw *ps)
 			ps->contm.n = ps->skb->n;
 		}
 		cont --;
-		ps->skb = ps->skb->next;
+		if(cont > 1)
+			ps->skb = ps->skb->next;
 	}
 	while(ps->skb->prev)
 		ps->skb = ps->skb->prev;
