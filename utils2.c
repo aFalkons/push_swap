@@ -6,7 +6,7 @@
 /*   By: afalconi <afalconi@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/06/04 19:14:55 by afalconi          #+#    #+#             */
-/*   Updated: 2023/06/04 19:16:03 by afalconi         ###   ########.fr       */
+/*   Updated: 2023/06/05 19:12:42 by afalconi         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -69,12 +69,12 @@ char	*ft_substr(char *s, int start, size_t len)
 	i = 0;
 	j = 0;
 	if (!s)
-		return (NULL);
+		return (0);
 	if (ft_strlen(s) <= len)
 		len = ft_strlen(s);
 	str = malloc(len + 1);
 	if (!str)
-		return (NULL);
+		return (0);
 	while (s[i])
 	{
 		if (i >= start && j < len)

@@ -6,7 +6,7 @@
 /*   By: afalconi <afalconi@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/06/03 21:37:23 by afalconi          #+#    #+#             */
-/*   Updated: 2023/06/05 18:19:03 by afalconi         ###   ########.fr       */
+/*   Updated: 2023/06/05 19:32:45 by afalconi         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -52,9 +52,9 @@ void	exemos(int f, int cont, t_pushsw *ps)
 		else if(f == 1)
 			rra(ps , 0);
 		else if(f == 2)
-			rb(ps ,0);
+			rrb(ps ,0);
 		else if(f == 3)
-			rrb(ps, 0);
+			rb(ps, 0);
 		cont --;
 	}
 }

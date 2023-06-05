@@ -6,7 +6,7 @@
 /*   By: afalconi <afalconi@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/06/03 21:25:16 by afalconi          #+#    #+#             */
-/*   Updated: 2023/06/05 18:16:33 by afalconi         ###   ########.fr       */
+/*   Updated: 2023/06/05 19:59:51 by afalconi         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -69,6 +69,8 @@ void	ckpusha(t_pushsw *ps)
 			ret = cont;
 		ps->ska = ps->ska->next;
 	}
+	if (ps->skb->n < ps->ska->n)
+		ret = cont;
 	while(ps->ska->prev)
 		ps->ska = ps->ska->prev;
 	if (ret > ps->size_a / 2)
@@ -95,7 +97,7 @@ void	puttop(t_pushsw *ps)
 	while (cont > 0)
 	{
 		ckpusha(ps);
-		if (cont >= ps->size_b / 2)
+		if (cont > ps->size_b / 2)
 		{
 			ps->contm.movesb = ps->size_b - cont;
 			ps->contm.rborrrb = 2;
