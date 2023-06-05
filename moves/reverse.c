@@ -6,11 +6,27 @@
 /*   By: afalconi <afalconi@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/05/22 05:48:00 by afalconi          #+#    #+#             */
-/*   Updated: 2023/06/05 19:45:29 by afalconi         ###   ########.fr       */
+/*   Updated: 2023/06/05 20:30:49 by afalconi         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../moves.h"
+
+void	rra_sav(t_pushsw *ps, int f)
+{
+	t_moves	*last;
+
+	last = ps->ska;
+	while(last->next)
+	{
+		last = last->next;
+	}
+	last->prev->next = NULL;
+	last->prev = NULL;
+	last->next = ps->ska;
+	ps->ska->prev = last;
+	ps->ska = last;
+}
 
 void	rra(t_pushsw *ps, int f)
 {
@@ -25,7 +41,7 @@ void	rra(t_pushsw *ps, int f)
 	temp->prev = NULL;
 	temp->next = ps->ska;
 	ps->ska->prev = temp;
-	ps->ska = ps->ska->prev;
+	ps->ska = temp;
 	if (f == 0)
 		write(1, "rra\n", 4);
 }
