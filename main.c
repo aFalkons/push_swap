@@ -6,7 +6,7 @@
 /*   By: afalconi <afalconi@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/05/22 05:42:17 by afalconi          #+#    #+#             */
-/*   Updated: 2023/06/04 21:11:13 by afalconi         ###   ########.fr       */
+/*   Updated: 2023/06/05 18:42:27 by afalconi         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -30,6 +30,12 @@ int main(int ac, char **av)
 		ps.ska = ps.ska->next;
 	}
 	printf("ska:%d\n", ps.ska->n);
+	// while (ps.skb->next)
+	// {
+	// 	printf("skb:%d\n", ps.skb->n);
+	// 	ps.skb = ps.skb->next;
+	// }
+	// printf("skb:%d\n", ps.skb->n);
 	ft_free(&ps);
 	return (0);
 }

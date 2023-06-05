@@ -6,7 +6,7 @@
 /*   By: afalconi <afalconi@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/06/03 21:37:23 by afalconi          #+#    #+#             */
-/*   Updated: 2023/06/03 22:45:32 by afalconi         ###   ########.fr       */
+/*   Updated: 2023/06/05 18:19:03 by afalconi         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -22,11 +22,29 @@ void	exeputtop(t_pushsw *ps)
 		exemos(2, ps->contm.vmovesb, ps);
 	else if(ps->contm.vrborrrb == 2)
 		exemos(3, ps->contm.vmovesb, ps);
-	pb(ps, 0);
+	pa(ps, 0);
 }
 
 void	exemos(int f, int cont, t_pushsw *ps)
 {
+	// if (cont == -1)
+	// {
+	// 	while(ps->contm.vmovesa > 0 || ps->contm.vmovesb > 0)
+	// 	{
+	// 		rr(ps, 0);
+	// 		ps->contm.vmovesa --;
+	// 		ps->contm.vmovesb --;
+	// 	}
+	// }
+	// if (cont == -2)
+	// {
+	// 	while(ps->contm.vmovesa > 0 || ps->contm.vmovesb > 0)
+	// 	{
+	// 		rrr(ps, 0);
+	// 		ps->contm.vmovesa --;
+	// 		ps->contm.vmovesb --;
+	// 	}
+	// }
 	while (cont > 0)
 	{
 		if (f == 0)

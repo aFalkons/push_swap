@@ -6,7 +6,7 @@
 /*   By: afalconi <afalconi@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/06/03 21:25:16 by afalconi          #+#    #+#             */
-/*   Updated: 2023/06/04 20:52:17 by afalconi         ###   ########.fr       */
+/*   Updated: 2023/06/05 18:16:33 by afalconi         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -25,7 +25,7 @@ void	fristswap(t_pushsw *ps)
 				ps->minb = ps->ska->n;
 			if (ps->ska->n > ps->maxb)
 				ps->maxb = ps->ska->n;
-			pa(ps, 0);
+			pb(ps, 0);
 		}
 		else
 			ra(ps, 0);
@@ -86,7 +86,11 @@ void	ckpusha(t_pushsw *ps)
 void	puttop(t_pushsw *ps)
 {
 	int cont;
+	int	mossom;
+	int	vmossom;
 
+	mossom = 0;
+	vmossom = 0;
 	cont = ps->size_b;
 	while (cont > 0)
 	{
@@ -94,20 +98,22 @@ void	puttop(t_pushsw *ps)
 		if (cont >= ps->size_b / 2)
 		{
 			ps->contm.movesb = ps->size_b - cont;
-			ps->contm.rborrrb = 1;
+			ps->contm.rborrrb = 2;
 		}
 		else
 		{
 			ps->contm.movesb = cont;
-			ps->contm.rborrrb = 2;
+			ps->contm.rborrrb = 1;
 		}
-		if (((ps->contm.movesa < ps->contm.vmovesa) && (ps->contm.movesb < ps->contm.vmovesb)) || (cont == ps->size_b))
+		mossom = ps->contm.movesa + ps->contm.movesb;
+		if (mossom < vmossom || (cont == ps->size_b))
 		{
 			ps->contm.vmovesa = ps->contm.movesa;
 			ps->contm.vmovesb = ps->contm.movesb;
 			ps->contm.vraorrra = ps->contm.raorrra;
 			ps->contm.vrborrrb = ps->contm.rborrrb;
 			ps->contm.n = ps->skb->n;
+			vmossom = mossom;
 		}
 		cont --;
 		if(cont > 1)

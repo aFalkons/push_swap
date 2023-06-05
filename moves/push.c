@@ -6,13 +6,13 @@
 /*   By: afalconi <afalconi@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/05/22 05:48:02 by afalconi          #+#    #+#             */
-/*   Updated: 2023/05/28 17:20:59 by afalconi         ###   ########.fr       */
+/*   Updated: 2023/06/05 17:24:01 by afalconi         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../moves.h"
 
-void	pa(t_pushsw *ps, int f)
+void	pb(t_pushsw *ps, int f)
 {
 	t_moves	*tmp;
 
@@ -29,10 +29,10 @@ void	pa(t_pushsw *ps, int f)
  	ps->size_b ++;
  	ps->size_a --;
 	if (f == 0)
-		write(1, "pa\n", 3);
+		write(1, "pb\n", 3);
 }
 
-void	pb(t_pushsw	*ps, int f)
+void	pa(t_pushsw	*ps, int f)
 {
 	t_moves	*tmp;
 
@@ -49,5 +49,5 @@ void	pb(t_pushsw	*ps, int f)
  	ps->size_a ++;
  	ps->size_b --;
 	if (f == 0)
-		write(1, "pb\n", 3);
+		write(1, "pa\n", 3);
 }
