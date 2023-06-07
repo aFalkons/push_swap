@@ -6,7 +6,7 @@
 /*   By: afalconi <afalconi@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/06/03 21:25:16 by afalconi          #+#    #+#             */
-/*   Updated: 2023/06/05 21:29:41 by afalconi         ###   ########.fr       */
+/*   Updated: 2023/06/07 00:24:22 by afalconi         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -78,16 +78,8 @@ void	ckpusha(t_pushsw *ps)
 		ret = cont;
 	while(ps->ska->prev)
 		ps->ska = ps->ska->prev;
-	if (ret > ps->size_a / 2)
-	{
-		ps->contm.raorrra = 2;
-		ps->contm.movesa= ps->size_a - ret;
-	}
-	else
-	{
-		ps->contm.raorrra = 1;
-		ps->contm.movesa = ret;
-	}
+	ps->contm.raorrra = 1;
+	ps->contm.movesa = ret;
 }
 
 void	puttop(t_pushsw *ps)
@@ -98,28 +90,22 @@ void	puttop(t_pushsw *ps)
 
 	mossom = 0;
 	vmossom = 0;
-	cont = ps->size_b;
-	while (cont > 0)
+	cont = 0;
+	while (cont < ps->size_b)
 	{
 		ckpusha(ps);
-		// printf("numero che sto controllando : %d\n", ps->skb->n);
-		// printf("mosse che deve fare a : %d\n", ps->contm.movesa);
-		// if(ps->contm.raorrra == 1)
-		// 	printf("------ra\n");
-		// else
-		// 	printf("------rra\n");
-		if (cont > ps->size_b / 2)
-		{
-			ps->contm.movesb = ps->size_b - cont;
-			ps->contm.rborrrb = 2;
-		}
-		else
-		{
+		//if (cont > ps->size_b / 2 && ps->size_b % 2 == 0)
+		//{
+		//	ps->contm.movesb = (ps->size_b - cont) + 1;
+		//	ps->contm.rborrrb = 2;
+		//}
+		//else
+		//{
 			ps->contm.movesb = cont;
 			ps->contm.rborrrb = 1;
-		}
+		//}
 		mossom = ps->contm.movesa + ps->contm.movesb;
-		if (mossom <= vmossom || (cont == ps->size_b))
+		if (mossom <= vmossom || (cont == 0))
 		{
 			ps->contm.vmovesa = ps->contm.movesa;
 			ps->contm.vmovesb = ps->contm.movesb;
@@ -128,8 +114,8 @@ void	puttop(t_pushsw *ps)
 			ps->contm.n = ps->skb->n;
 			vmossom = mossom;
 		}
-		cont --;
-		if(cont > 1)
+		cont ++;
+		if(cont < ps->size_b - 1)
 			ps->skb = ps->skb->next;
 	}
 	while(ps->skb->prev)
