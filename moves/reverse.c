@@ -6,7 +6,7 @@
 /*   By: afalconi <afalconi@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/05/22 05:48:00 by afalconi          #+#    #+#             */
-/*   Updated: 2023/06/05 20:30:49 by afalconi         ###   ########.fr       */
+/*   Updated: 2023/06/07 20:02:39 by afalconi         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -59,14 +59,15 @@ void	rrb(t_pushsw *ps, int f)
 	temp->next = ps->skb;
 	ps->skb->prev = temp;
 	ps->skb = ps->skb->prev;
+	ps->skb = temp;
 	if (f == 0)
 		write(1, "rrb\n", 4);
 }
 
 void	rrr(t_pushsw *ps, int f)
 {
-	rra(ps, 0);
-	rrb(ps, 0);
+	rra(ps, 1);
+	rrb(ps, 1);
 	if (f == 0)
 		write(1, "rrr\n", 4);
 }

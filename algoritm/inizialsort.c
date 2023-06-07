@@ -6,7 +6,7 @@
 /*   By: afalconi <afalconi@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/06/03 21:25:16 by afalconi          #+#    #+#             */
-/*   Updated: 2023/06/07 00:24:22 by afalconi         ###   ########.fr       */
+/*   Updated: 2023/06/07 19:20:30 by afalconi         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -78,8 +78,16 @@ void	ckpusha(t_pushsw *ps)
 		ret = cont;
 	while(ps->ska->prev)
 		ps->ska = ps->ska->prev;
-	ps->contm.raorrra = 1;
-	ps->contm.movesa = ret;
+	if (cont > ps->size_a / 2)
+	{
+		ps->contm.raorrra = 2;
+		ps->contm.movesa = ps->size_a - ret;
+	}
+	else
+	{
+		ps->contm.raorrra = 1;
+		ps->contm.movesa = ret;
+	}
 }
 
 void	puttop(t_pushsw *ps)
@@ -93,17 +101,18 @@ void	puttop(t_pushsw *ps)
 	cont = 0;
 	while (cont < ps->size_b)
 	{
+		//printf("%d\n", ps->size_b);
 		ckpusha(ps);
-		//if (cont > ps->size_b / 2 && ps->size_b % 2 == 0)
-		//{
-		//	ps->contm.movesb = (ps->size_b - cont) + 1;
-		//	ps->contm.rborrrb = 2;
-		//}
-		//else
-		//{
+		if (cont > ps->size_b / 2)
+		{
+			ps->contm.movesb = ps->size_b - cont;
+			ps->contm.rborrrb = 2;
+		}
+		else
+		{
 			ps->contm.movesb = cont;
 			ps->contm.rborrrb = 1;
-		//}
+		}
 		mossom = ps->contm.movesa + ps->contm.movesb;
 		if (mossom <= vmossom || (cont == 0))
 		{
@@ -115,7 +124,7 @@ void	puttop(t_pushsw *ps)
 			vmossom = mossom;
 		}
 		cont ++;
-		if(cont < ps->size_b - 1)
+		if(ps->skb->next)
 			ps->skb = ps->skb->next;
 	}
 	while(ps->skb->prev)
