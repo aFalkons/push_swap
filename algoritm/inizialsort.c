@@ -6,7 +6,7 @@
 /*   By: afalconi <afalconi@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/06/03 21:25:16 by afalconi          #+#    #+#             */
-/*   Updated: 2023/06/07 19:20:30 by afalconi         ###   ########.fr       */
+/*   Updated: 2023/06/09 02:38:53 by afalconi         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,6 +14,16 @@
 
 void	fristswap(t_pushsw *ps)
 {
+	int *lis;
+	int i;
+
+	i = 0;
+	lis = lisanchesepococonvinto(ps);
+	while(lis[i])
+	{
+		printf("%d\n", lis[i]);
+		i++;
+	}
 	ps->maxb = 0;
 	ps->minb = 2147483647;
 	maxemin(ps);
@@ -101,7 +111,6 @@ void	puttop(t_pushsw *ps)
 	cont = 0;
 	while (cont < ps->size_b)
 	{
-		//printf("%d\n", ps->size_b);
 		ckpusha(ps);
 		if (cont > ps->size_b / 2)
 		{
@@ -129,4 +138,34 @@ void	puttop(t_pushsw *ps)
 	}
 	while(ps->skb->prev)
 		ps->skb = ps->skb->prev;
+}
+
+int	*lisanchesepococonvinto(t_pushsw *ps)
+{
+	int i;
+	int maxLength = 1;
+	t_moves *maxEndNode = ps->ska;
+	t_moves *current = ps->ska;
+	int* tsequence = (int*)malloc(maxLength * sizeof(int));
+
+	i = 0;
+	tsequence[0] = current->n;
+	while (current->next != NULL) {
+		current = current->next;
+		if (current->n > tsequence[maxLength - 1])
+		{
+			maxLength++;
+			maxEndNode = current;
+			int* ntsequence = (int*)malloc(maxLength * sizeof(int));
+			while (i < maxLength - 1)
+			{
+				ntsequence[i] = tsequence[i];
+				i++;
+			}
+			ntsequence[maxLength - 1] = current->n;
+			free(tsequence);
+			tsequence = ntsequence;
+		}
+	}
+	return tsequence;
 }

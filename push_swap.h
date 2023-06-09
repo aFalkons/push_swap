@@ -6,7 +6,7 @@
 /*   By: afalconi <afalconi@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/04/21 01:38:31 by afalconi          #+#    #+#             */
-/*   Updated: 2023/06/04 21:09:02 by afalconi         ###   ########.fr       */
+/*   Updated: 2023/06/09 02:20:17 by afalconi         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -44,5 +44,7 @@ char	**ft_split(char *s, char c);
 char	*ft_substr(char *s, int start, size_t len);
 void	freedellacosa(char	**str);
 void	reorder(t_pushsw *ps);
+void	exedobemoves(t_pushsw *ps, int f, int *cont1, int *cont2);
+int		*lisanchesepococonvinto(t_pushsw *ps);
 
 #endif
