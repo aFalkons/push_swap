@@ -6,7 +6,7 @@
 /*   By: afalconi <afalconi@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/06/03 21:25:16 by afalconi          #+#    #+#             */
-/*   Updated: 2023/06/09 02:38:53 by afalconi         ###   ########.fr       */
+/*   Updated: 2023/06/09 10:04:49 by afalconi         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,16 +14,12 @@
 
 void	fristswap(t_pushsw *ps)
 {
-	int *lis;
+	t_moves *lis;
 	int i;
 
 	i = 0;
 	lis = lisanchesepococonvinto(ps);
-	while(lis[i])
-	{
-		printf("%d\n", lis[i]);
-		i++;
-	}
+	printf("okchemps\n");
 	ps->maxb = 0;
 	ps->minb = 2147483647;
 	maxemin(ps);
@@ -140,32 +136,61 @@ void	puttop(t_pushsw *ps)
 		ps->skb = ps->skb->prev;
 }
 
-int	*lisanchesepococonvinto(t_pushsw *ps)
+t_moves *lisanchesepococonvinto(t_pushsw *ps)
 {
-	int i;
-	int maxLength = 1;
-	t_moves *maxEndNode = ps->ska;
-	t_moves *current = ps->ska;
-	int* tsequence = (int*)malloc(maxLength * sizeof(int));
+    t_moves	*maxLengthNode = ps->ska;  // Nodo iniziale della sequenza massima
+    t_moves *maxEndNode = ps->ska;    // Nodo finale della sequenza massima
+    t_moves *current = ps->ska;
 
-	i = 0;
-	tsequence[0] = current->n;
-	while (current->next != NULL) {
-		current = current->next;
-		if (current->n > tsequence[maxLength - 1])
-		{
-			maxLength++;
-			maxEndNode = current;
-			int* ntsequence = (int*)malloc(maxLength * sizeof(int));
-			while (i < maxLength - 1)
-			{
-				ntsequence[i] = tsequence[i];
-				i++;
-			}
-			ntsequence[maxLength - 1] = current->n;
-			free(tsequence);
-			tsequence = ntsequence;
-		}
-	}
-	return tsequence;
+	t_moves *tempStartNode = ps->ska;  // Nodo iniziale della sequenza corrente
+    t_moves *tempEndNode = ps->ska;    // Nodo finale della sequenza corrente
+
+    while (current->next != NULL) {
+        current = current->next;
+
+        // Se il valore corrente è maggiore del valore precedente,
+        // estendiamo la sequenza corrente aggiungendo il nodo corrente.
+        if (current->n > tempEndNode->n) {
+            tempEndNode = current;
+        } else {
+            // La sequenza corrente è terminata, confrontiamo la sua lunghezza
+            // con quella della sequenza massima finora e aggiorniamo
+            // i puntatori dei nodi di inizio e fine della sequenza massima se necessario.
+            if ((tempEndNode->n - tempStartNode->n) >= (maxEndNode->n - maxLengthNode->n)) {
+                maxLengthNode = tempStartNode;
+                maxEndNode = tempEndNode;
+            }
+
+            // Iniziamo una nuova sequenza corrente dal nodo corrente
+            tempStartNode = current;
+            tempEndNode = current;
+        }
+    }
+
+    // Controlliamo l'ultima sequenza corrente
+    if ((tempEndNode->n - tempStartNode->n) >= (maxEndNode->n - maxLengthNode->n)) {
+        maxLengthNode = tempStartNode;
+        maxEndNode = tempEndNode;
+    }
+
+    // Creiamo una nuova lista per la sequenza massima
+    Node* sequenceHead = maxLengthNode;
+    Node* sequenceCurrent = maxLengthNode->next;
+    Node* sequencePrev = NULL;
+
+    while (sequenceCurrent != maxEndNode->next) {
+        Node* newNode = (Node*)malloc(sizeof(Node));
+        newNode->data = sequenceCurrent->data;
+        newNode->next = NULL;
+        newNode->prev = sequencePrev;
+
+        if (sequencePrev != NULL) {
+            sequencePrev->next = newNode;
+        }
+
+        sequencePrev = newNode;
+        sequenceCurrent = sequenceCurrent->next;
+    }
+
+    return sequenceHead;
 }
