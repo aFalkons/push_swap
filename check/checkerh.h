@@ -6,7 +6,7 @@
 /*   By: afalconi <afalconi@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/06/10 16:39:32 by afalconi          #+#    #+#             */
-/*   Updated: 2023/06/10 17:34:38 by afalconi         ###   ########.fr       */
+/*   Updated: 2023/06/11 00:54:19 by afalconi         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -33,6 +33,7 @@ typedef struct s_ck {
 	t_moves	*skb;
 	int		size_a;
 	int		size_b;
+	char	*mov;
 }	t_ck;
 
 void			setup(t_ck *ps, int ac, char **av);
@@ -46,6 +47,22 @@ void			ft_free(t_ck *ps);
 static size_t	get_word(char *s, char c);
 char			**ft_split(char *s, char c);
 char			*ft_substr(char *s, int start, size_t len);
+int				ft_strncmp(char *s1, char *s2, size_t n);
+void			pb(t_ck *ps, int f);
+void			pa(t_ck *ps, int f);
+void			ra(t_ck *ps, int f);
+void			rb(t_ck *ps, int f);
+void			rr(t_ck *ps, int f);
+void			rra(t_ck *ps, int f);
+void			rrb(t_ck *ps, int f);
+void			rrr(t_ck *ps, int f);
+void			sa(t_ck *ps, int f);
+void			sb(t_ck *ps, int f);
+void			ss(t_ck *ps, int f);
+void			ckin(t_ck *ck);
+int				exemoves(t_ck *ck, int i);
+void			ckcomb(t_ck *ck);
+
 
 
 #endif

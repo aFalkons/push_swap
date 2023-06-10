@@ -6,7 +6,7 @@
 #    By: afalconi <afalconi@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2023/05/22 05:41:09 by afalconi          #+#    #+#              #
-#    Updated: 2023/06/10 17:30:50 by afalconi         ###   ########.fr        #
+#    Updated: 2023/06/10 23:10:29 by afalconi         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -28,6 +28,10 @@ CFILESB =	check/checkermain.c \
 			check/gnl/get_next_line_utils.c \
 			check/utils.c \
 			check/utils2.c \
+			check/bmoves/bpush.c \
+			check/bmoves/breverse.c \
+			check/bmoves/brotate.c \
+			check/bmoves/bswap.c \
 
 OBJ = $(CFILES:.c=.o)
 

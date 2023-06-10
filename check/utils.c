@@ -6,7 +6,7 @@
 /*   By: afalconi <afalconi@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/05/22 05:58:08 by afalconi          #+#    #+#             */
-/*   Updated: 2023/06/10 17:28:50 by afalconi         ###   ########.fr       */
+/*   Updated: 2023/06/10 22:59:57 by afalconi         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -44,9 +44,9 @@ int		ft_atol(char *str, t_ck *ps)
 
 void	ft_exit(char *str, t_ck *ps)
 {
-	if (ps == NULL)
+	if (str != NULL)
 		write(2, str, ft_strlen(str));
-	else
+	if (ps != NULL)
 		ft_free(ps);
 	exit(1);
 }
@@ -62,17 +62,45 @@ void	*ft_malloc(int bytes)
 }
 void	ft_free(t_ck *ps)
 {
+	if(ps->size_b > 1)
+	{
+		while (ps->skb->next)
+			ps->skb = ps->skb->next;
+		ps->skb = ps->skb->prev;
+		while (ps->skb->prev)
+		{
+			free(ps->skb->next);
+			ps->skb = ps->skb->prev;
+		}
+		free(ps->skb->next);
+		free(ps->skb);
+	}
+	if (ps->size_b == 1)
+		free(ps->skb);
 	while (ps->ska->next)
 		ps->ska = ps->ska->next;
 	ps->ska = ps->ska->prev;
 	while (ps->ska->prev)
 	{
 		free(ps->ska->next);
-		ps->ska->next = NULL;
 		ps->ska = ps->ska->prev;
 	}
 	free(ps->ska->next);
-	ps->ska->next = NULL;
 	free(ps->ska);
-	ps->ska = NULL;
+}
+
+int	ft_strncmp(char *s1, char *s2, size_t n)
+{
+	size_t	i;
+
+	i = 0;
+	if (!n)
+		return (0);
+	while (s1[i] && s2[i] && i < n - 1)
+	{
+		if (s1[i] != s2[i])
+			break ;
+		i++;
+	}
+	return (s1[i] - s2[i]);
 }
