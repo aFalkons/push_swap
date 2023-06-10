@@ -6,7 +6,7 @@
 /*   By: afalconi <afalconi@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/06/04 21:02:53 by afalconi          #+#    #+#             */
-/*   Updated: 2023/06/04 21:12:44 by afalconi         ###   ########.fr       */
+/*   Updated: 2023/06/09 18:24:41 by afalconi         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -28,19 +28,54 @@ void	reorder(t_pushsw *ps)
 		ps->ska = ps->ska->prev;
 	if (i > ps->size_a / 2)
 	{
-		i = ps->size_a - i;
-		while(i != 0)
-		{
+		i = ps->size_a - i + 1;
+		while(-- i != 0)
 			rra(ps, 0);
-			i --;
-		}
 	}
 	else
 	{
-		while(i != 0)
-		{
+		i++;
+		while(-- i != 0)
 			ra(ps, 0);
-			i --;
-		}
 	}
+}
+void	mid(t_pushsw *ps)
+{
+	t_moves	*ck;
+	int		cont;
+
+	ck = ps->ska;
+	cont = 0;
+	while(ck->next)
+	{
+		mid2(ps, ck, cont);
+		cont = 0;
+		ck = ck->next;
+	}
+	mid2(ps, ck, cont);
+}
+
+void	mid2(t_pushsw *ps, t_moves *ck, int cont)
+{
+	t_moves	*ck2;
+
+	ck2 = ps->ska;
+	while(ck2->next)
+	{
+		if(ck2->n <= ck->n)
+			cont ++;
+		ck2 = ck2->next;
+	}
+	if(ck2->n <= ck->n)
+		cont ++;
+	if (cont == ps->size_a / 2)
+		ps->mid = ck->n;
+}
+
+void	inizmy(t_pushsw *ps)
+{
+	ps->contm.movesa = 0;
+	ps->contm.movesb = 0;
+	ps->contm.raorrra = 0;
+	ps->contm.rborrrb = 0;
 }

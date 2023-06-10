@@ -6,13 +6,13 @@
 /*   By: afalconi <afalconi@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/05/24 21:04:57 by afalconi          #+#    #+#             */
-/*   Updated: 2023/06/10 13:15:03 by afalconi         ###   ########.fr       */
+/*   Updated: 2023/06/10 17:28:44 by afalconi         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "push_swap.h"
+#include "checkerh.h"
 
-void	setup(t_pushsw *ps, int ac, char **av)
+void	setup(t_ck *ps, int ac, char **av)
 {
 	t_moves	*temp;
 	char	**ninchar;
@@ -41,7 +41,7 @@ void	setup(t_pushsw *ps, int ac, char **av)
 		freedellacosa(ninchar);
 }
 
-char	**ckinput(t_pushsw *ps, int ac, char **av, int *f)
+char	**ckinput(t_ck *ps, int ac, char **av, int *f)
 {
 	char	**inputarg;
 	int		i;
@@ -69,7 +69,7 @@ char	**ckinput(t_pushsw *ps, int ac, char **av, int *f)
 	return(inputarg);
 }
 
-void	ckinput2(char **av, t_pushsw *ps, int f)
+void	ckinput2(char **av, t_ck *ps, int f)
 {
 	int i;
 	int j;

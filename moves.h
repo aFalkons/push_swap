@@ -6,7 +6,7 @@
 /*   By: afalconi <afalconi@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/05/23 16:17:54 by afalconi          #+#    #+#             */
-/*   Updated: 2023/06/07 19:25:21 by afalconi         ###   ########.fr       */
+/*   Updated: 2023/06/09 21:01:53 by afalconi         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -33,9 +33,6 @@ typedef struct s_contmoves {
 	int		movesb;
 	int		raorrra;
 	int		rborrrb;
-	int		vrrr;
-	int		vrr;
-	int		n;
 }	t_contmoves;
 
 typedef struct s_pushsw {
@@ -45,8 +42,7 @@ typedef struct s_pushsw {
 	int		size_b;
 	int		maxa;
 	int		mina;
-	int		maxb;
-	int		minb;
+	int		mid;
 	t_contmoves contm;
 }	t_pushsw;
 

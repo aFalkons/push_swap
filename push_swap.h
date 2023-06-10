@@ -6,7 +6,7 @@
 /*   By: afalconi <afalconi@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/04/21 01:38:31 by afalconi          #+#    #+#             */
-/*   Updated: 2023/06/09 09:41:46 by afalconi         ###   ########.fr       */
+/*   Updated: 2023/06/10 16:40:43 by afalconi         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,7 +19,6 @@
 # include <sys/types.h>
 # include <unistd.h>
 # include <string.h>
-# include <stdlib.h>
 #include "moves.h"
 
 void			setup(t_pushsw *ps, int ac, char **av);
@@ -38,13 +37,15 @@ void			inizmy(t_pushsw *ps);
 void			exeputtop(t_pushsw *ps);
 void			exemos(int f, int cont, t_pushsw *ps);
 char			**ckinput(t_pushsw *ps, int ac, char **av, int *f);
-void			ckinput2(char **av, t_pushsw *ps);
+void			ckinput2(char **av, t_pushsw *ps, int f);
 static size_t	get_word(char *s, char c);
 char			**ft_split(char *s, char c);
 char			*ft_substr(char *s, int start, size_t len);
 void			freedellacosa(char	**str);
 void			reorder(t_pushsw *ps);
 void			exedobemoves(t_pushsw *ps, int f, int *cont1, int *cont2);
-struct s_moves	*lisanchesepococonvinto(t_pushsw *ps);
+void			mid(t_pushsw *ps);
+void			mid2(t_pushsw *ps, t_moves *ck, int cont);
+void			ckrxrrx(t_pushsw *ps, int size, int ret, int f);
 
 #endif

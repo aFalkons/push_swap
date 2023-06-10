@@ -6,7 +6,7 @@
 /*   By: afalconi <afalconi@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/06/03 21:37:23 by afalconi          #+#    #+#             */
-/*   Updated: 2023/06/09 01:36:25 by afalconi         ###   ########.fr       */
+/*   Updated: 2023/06/09 18:22:48 by afalconi         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,10 +14,6 @@
 
 void	exeputtop(t_pushsw *ps)
 {
-	//printf("mosse su a   : %d\n", ps->contm.vmovesa);
-	//printf("mosse su b   : %d\n", ps->contm.vmovesb);
-	//printf("tipo mossa a : %d\n", ps->contm.vrborrrb);
-	//printf("tipo mossa b : %d\n", ps->contm.vraorrra);
 	if(ps->contm.vmovesa == ps->size_a)
 		ps->contm.vmovesa = 0;
 	if(ps->contm.vmovesb == ps->size_b)
@@ -39,7 +35,6 @@ void	exeputtop(t_pushsw *ps)
 
 void	exedobemoves(t_pushsw *ps, int f, int *cont1, int *cont2)
 {
-	//printf("diocane\n");
 	if (*cont1 == 0 || *cont2 == 0)
 		return ;
 	while(1)
@@ -50,7 +45,6 @@ void	exedobemoves(t_pushsw *ps, int f, int *cont1, int *cont2)
 			rr(ps, 0);
 		(*cont1) --;
 		(*cont2) --;
-		//printf("GG\n");
 		if ((*cont2) == 0 || (*cont1) == 0)
 			return;
 	}
