@@ -6,7 +6,7 @@
 /*   By: afalconi <afalconi@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/05/24 21:04:57 by afalconi          #+#    #+#             */
-/*   Updated: 2023/06/10 13:15:03 by afalconi         ###   ########.fr       */
+/*   Updated: 2023/06/11 19:35:58 by afalconi         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -25,6 +25,7 @@ void	setup(t_pushsw *ps, int ac, char **av)
 	ps->size_b = 0;
 	ps->ska = ft_malloc(sizeof(t_moves));
 	ps->ska->prev = NULL;
+	ps->ska->next = NULL;
 	ps->ska->n = ft_atol(ninchar[i], ps);
 	while (ninchar[++i])
 	{
@@ -32,6 +33,7 @@ void	setup(t_pushsw *ps, int ac, char **av)
 		ps->ska->next = ft_malloc(sizeof(t_moves));
 		ps->ska = ps->ska->next;
 		ps->ska->prev = temp;
+		ps->ska->next = NULL;
 		ps->ska->n = ft_atol(ninchar[i], ps);
 	}
 	ps->ska->next = NULL;
@@ -49,9 +51,9 @@ char	**ckinput(t_pushsw *ps, int ac, char **av, int *f)
 
 	i = 0;
 	cont = 0;
-	if (ac == 2 && ft_strlen(av[1]) <= 3)
-		ft_exit("Error\nbad input\n", NULL);
-	else if(ac == 2)
+	if (ac == 2 && ft_strlen(av[1]) <= 1)
+		ft_exit(NULL, NULL, 0);
+	if(ac == 2)
 	{
 		inputarg = ft_split(av[1], ' ');
 		while (inputarg[i])
@@ -86,7 +88,7 @@ void	ckinput2(char **av, t_pushsw *ps, int f)
 				{
 					if (f == 1)
 						freedellacosa(av);
-					ft_exit("Error\nbad input\n", NULL);
+					ft_exit("Error\nbad input\n", NULL, 1);
 				}
 			}
 			j ++;

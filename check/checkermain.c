@@ -6,7 +6,7 @@
 /*   By: afalconi <afalconi@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/06/10 15:49:36 by afalconi          #+#    #+#             */
-/*   Updated: 2023/06/11 01:05:53 by afalconi         ###   ########.fr       */
+/*   Updated: 2023/06/11 19:18:50 by afalconi         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,7 +15,11 @@
 int	main(int ac, char **av)
 {
 	t_ck ck;
+
+	if (ac == 1)
+		ft_exit("Error\nbad input\n", NULL);
 	setup(&ck, ac, av);
+	cksequesns(&ck);
 	ck.mov = get_next_line(0);
 	while (ck.mov)
 	{
@@ -93,4 +97,29 @@ void	ckcomb(t_ck *ck)
 			ft_exit("KO\n", ck);
 	}
 	write(1, "OK\n", 3);
+}
+
+void	cksequesns(t_ck *ps)
+{
+	int n;
+	int cont;
+	t_moves *ck;
+
+	while(ps->ska->next)
+	{
+		n = ps->ska->n;
+		cont = 0;
+		ck = ps->ska;
+		while(ck->next)
+		{
+			if(n == ck->n)
+				cont ++;
+			ck = ck->next;
+		}
+		if(n == ck->n)
+			cont ++;
+		if (cont > 1)
+			ft_exit("Error\nbad input\n", ps);
+		ps->ska = ps->ska->next;
+	}
 }

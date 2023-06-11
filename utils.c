@@ -6,7 +6,7 @@
 /*   By: afalconi <afalconi@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/05/22 05:58:08 by afalconi          #+#    #+#             */
-/*   Updated: 2023/06/04 19:29:20 by afalconi         ###   ########.fr       */
+/*   Updated: 2023/06/11 19:46:32 by afalconi         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -37,17 +37,17 @@ int		ft_atol(char *str, t_pushsw *ps)
 		i++;
 	}
 	if (som > INT_MAX || som < INT_MIN)
-		ft_exit("Error\nbad input", ps);
+		ft_exit("Error\nbad input", ps, 1);
 	return(som * seg);
 }
 
-void	ft_exit(char *str, t_pushsw *ps)
+void	ft_exit(char *str, t_pushsw *ps, int f)
 {
-	if (ps == NULL)
+	if (str != NULL)
 		write(2, str, ft_strlen(str));
-	else
+	if (ps != NULL)
 		ft_free(ps);
-	exit(1);
+	exit(f);
 }
 int	ft_strlen(char *str)
 {
@@ -70,17 +70,20 @@ void	*ft_malloc(int bytes)
 }
 void	ft_free(t_pushsw *ps)
 {
-	while (ps->ska->next)
-		ps->ska = ps->ska->next;
-	ps->ska = ps->ska->prev;
-	while (ps->ska->prev)
+	if (ps->ska->prev != NULL)
 	{
+		while (ps->ska->next)
+			ps->ska = ps->ska->next;
+		ps->ska = ps->ska->prev;
+		while (ps->ska->prev)
+		{
+			free(ps->ska->next);
+			ps->ska->next = NULL;
+			ps->ska = ps->ska->prev;
+		}
 		free(ps->ska->next);
 		ps->ska->next = NULL;
-		ps->ska = ps->ska->prev;
 	}
-	free(ps->ska->next);
-	ps->ska->next = NULL;
 	free(ps->ska);
 	ps->ska = NULL;
 }

@@ -6,7 +6,7 @@
 /*   By: afalconi <afalconi@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/05/22 05:58:08 by afalconi          #+#    #+#             */
-/*   Updated: 2023/06/10 22:59:57 by afalconi         ###   ########.fr       */
+/*   Updated: 2023/06/11 19:46:53 by afalconi         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -79,13 +79,16 @@ void	ft_free(t_ck *ps)
 		free(ps->skb);
 	while (ps->ska->next)
 		ps->ska = ps->ska->next;
-	ps->ska = ps->ska->prev;
-	while (ps->ska->prev)
+	if (ps->ska->prev != NULL)
 	{
-		free(ps->ska->next);
 		ps->ska = ps->ska->prev;
+		while (ps->ska->prev)
+		{
+			free(ps->ska->next);
+			ps->ska = ps->ska->prev;
+		}
+		free(ps->ska->next);
 	}
-	free(ps->ska->next);
 	free(ps->ska);
 }
 

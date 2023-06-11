@@ -6,7 +6,7 @@
 /*   By: afalconi <afalconi@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/05/24 21:04:57 by afalconi          #+#    #+#             */
-/*   Updated: 2023/06/10 17:28:44 by afalconi         ###   ########.fr       */
+/*   Updated: 2023/06/11 19:29:27 by afalconi         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -32,6 +32,7 @@ void	setup(t_ck *ps, int ac, char **av)
 		ps->ska->next = ft_malloc(sizeof(t_moves));
 		ps->ska = ps->ska->next;
 		ps->ska->prev = temp;
+		ps->ska->next = NULL;
 		ps->ska->n = ft_atol(ninchar[i], ps);
 	}
 	ps->ska->next = NULL;
@@ -49,8 +50,11 @@ char	**ckinput(t_ck *ps, int ac, char **av, int *f)
 
 	i = 0;
 	cont = 0;
-	if (ac == 2 && ft_strlen(av[1]) <= 3)
-		ft_exit("Error\nbad input\n", NULL);
+	if (ac == 2 && ft_strlen(av[1]) <= 1)
+	{
+		write(1, "OK\n", 3);
+		exit(0);
+	}
 	else if(ac == 2)
 	{
 		inputarg = ft_split(av[1], ' ');
@@ -64,7 +68,6 @@ char	**ckinput(t_ck *ps, int ac, char **av, int *f)
 		ps->size_a = ac - 1;
 		*f = 0;
 	}
-	i = -1;
 	ckinput2(inputarg, ps, *f);
 	return(inputarg);
 }

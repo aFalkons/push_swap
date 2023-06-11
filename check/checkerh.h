@@ -6,7 +6,7 @@
 /*   By: afalconi <afalconi@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/06/10 16:39:32 by afalconi          #+#    #+#             */
-/*   Updated: 2023/06/11 00:54:19 by afalconi         ###   ########.fr       */
+/*   Updated: 2023/06/11 19:12:48 by afalconi         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -62,7 +62,7 @@ void			ss(t_ck *ps, int f);
 void			ckin(t_ck *ck);
 int				exemoves(t_ck *ck, int i);
 void			ckcomb(t_ck *ck);
-
+void			cksequesns(t_ck *ps);
 
 
 #endif

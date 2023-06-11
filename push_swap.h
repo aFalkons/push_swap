@@ -6,7 +6,7 @@
 /*   By: afalconi <afalconi@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/04/21 01:38:31 by afalconi          #+#    #+#             */
-/*   Updated: 2023/06/10 16:40:43 by afalconi         ###   ########.fr       */
+/*   Updated: 2023/06/11 19:09:44 by afalconi         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -25,7 +25,7 @@ void			setup(t_pushsw *ps, int ac, char **av);
 int				ft_atol(char *str, t_pushsw *ps);
 int				ft_strlen(char *str);
 void			*ft_malloc(int bytes);
-void			ft_exit(char *str, t_pushsw *ps);
+void			ft_exit(char *str, t_pushsw *ps, int f);
 void			ft_free(t_pushsw *ps);
 void			fristswap(t_pushsw *ps);
 void			sort3(t_pushsw *ps);
@@ -47,5 +47,8 @@ void			exedobemoves(t_pushsw *ps, int f, int *cont1, int *cont2);
 void			mid(t_pushsw *ps);
 void			mid2(t_pushsw *ps, t_moves *ck, int cont);
 void			ckrxrrx(t_pushsw *ps, int size, int ret, int f);
+void			ckjastsort(t_pushsw *ps);
+void			cksequesns(t_pushsw *ps);
+
 
 #endif
