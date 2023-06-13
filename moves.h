@@ -6,7 +6,7 @@
 /*   By: afalconi <afalconi@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/05/23 16:17:54 by afalconi          #+#    #+#             */
-/*   Updated: 2023/06/09 21:01:53 by afalconi         ###   ########.fr       */
+/*   Updated: 2023/06/13 19:59:19 by afalconi         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -36,14 +36,14 @@ typedef struct s_contmoves {
 }	t_contmoves;
 
 typedef struct s_pushsw {
-	t_moves	*ska;
-	t_moves	*skb;
-	int		size_a;
-	int		size_b;
-	int		maxa;
-	int		mina;
-	int		mid;
-	t_contmoves contm;
+	t_moves		*ska;
+	t_moves		*skb;
+	int			size_a;
+	int			size_b;
+	int			maxa;
+	int			mina;
+	int			mid;
+	t_contmoves	contm;
 }	t_pushsw;
 
 void	ss(t_pushsw *ps, int f);

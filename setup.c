@@ -6,7 +6,7 @@
 /*   By: afalconi <afalconi@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/05/24 21:04:57 by afalconi          #+#    #+#             */
-/*   Updated: 2023/06/11 19:35:58 by afalconi         ###   ########.fr       */
+/*   Updated: 2023/06/13 19:58:19 by afalconi         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -21,8 +21,6 @@ void	setup(t_pushsw *ps, int ac, char **av)
 
 	ninchar = ckinput(ps, ac, av, &f);
 	i = 0;
-	ps->skb = NULL;
-	ps->size_b = 0;
 	ps->ska = ft_malloc(sizeof(t_moves));
 	ps->ska->prev = NULL;
 	ps->ska->next = NULL;
@@ -51,16 +49,15 @@ char	**ckinput(t_pushsw *ps, int ac, char **av, int *f)
 
 	i = 0;
 	cont = 0;
-	if (ac == 2 && ft_strlen(av[1]) <= 1)
-		ft_exit(NULL, NULL, 0);
-	if(ac == 2)
+	if (ac == 2)
 	{
 		inputarg = ft_split(av[1], ' ');
 		while (inputarg[i])
 			i ++;
 		ps->size_a = i;
 		*f = 1;
-	}else
+	}
+	else
 	{
 		inputarg = &av[1];
 		ps->size_a = ac - 1;
@@ -68,27 +65,29 @@ char	**ckinput(t_pushsw *ps, int ac, char **av, int *f)
 	}
 	i = -1;
 	ckinput2(inputarg, ps, *f);
-	return(inputarg);
+	return (inputarg);
 }
 
 void	ckinput2(char **av, t_pushsw *ps, int f)
 {
-	int i;
-	int j;
+	int	i;
+	int	j;
 
 	i = 0;
 	j = 0;
 	while (av[i])
 	{
-		while(av[i][j])
+		while (av[i][j])
 		{
 			if (!(av[i][j] >= 48 && av[i][j] <= 57))
 			{
-				if ((ft_strlen(av[i]) < 2) || !(av[i][j] == '-' && av[i][j + 1] > 48 && av[i][j + 1] < 57))
+				if ((ft_strlen(av[i]) < 2)
+					|| !(av[i][j] == '-' && av[i][j + 1] > 48
+					&& av[i][j + 1] < 57))
 				{
 					if (f == 1)
 						freedellacosa(av);
-					ft_exit("Error\nbad input\n", NULL, 1);
+					ft_exit("Error\n", NULL, 1);
 				}
 			}
 			j ++;
@@ -100,10 +99,10 @@ void	ckinput2(char **av, t_pushsw *ps, int f)
 
 void	freedellacosa(char	**str)
 {
-	int i;
+	int	i;
 
 	i = 0;
-	while(str[i])
+	while (str[i])
 	{
 		free(str[i]);
 		i++;

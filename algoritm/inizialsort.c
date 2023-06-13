@@ -6,7 +6,7 @@
 /*   By: afalconi <afalconi@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/06/03 21:25:16 by afalconi          #+#    #+#             */
-/*   Updated: 2023/06/11 16:36:39 by afalconi         ###   ########.fr       */
+/*   Updated: 2023/06/13 20:01:23 by afalconi         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,16 +14,25 @@
 
 void	fristswap(t_pushsw *ps)
 {
+	int	temp;
+
+	temp = ps->size_a;
 	mid(ps);
 	maxemin(ps);
-	while(ps->ska->prev)
+	while (ps->ska->prev)
 		ps->ska = ps->ska->prev;
+	if (ps->size_a == 5)
+	{
+		sort5(ps);
+		maxemin(ps);
+		return ;
+	}
 	while (ps->size_a != 3)
 	{
-		if(ps->ska->n != ps->maxa && ps->ska->n != ps->mina)
+		if (ps->ska->n != ps->maxa && ps->ska->n != ps->mina)
 		{
 			pb(ps, 0);
-			if(ps->skb->n > ps->mid && ps->size_b != 1)
+			if (ps->skb->n > ps->mid && ps->size_b != 1 && temp != 5)
 				rb(ps, 0);
 		}
 		else
@@ -46,7 +55,7 @@ void	ckrxrrx(t_pushsw *ps, int size, int ret, int f)
 			ps->contm.raorrra = 1;
 			ps->contm.movesa = ret;
 		}
-		return;
+		return ;
 	}
 	if (ret > size / 2)
 	{
@@ -62,29 +71,28 @@ void	ckrxrrx(t_pushsw *ps, int size, int ret, int f)
 
 void	sort3(t_pushsw *ps)
 {
-	if (ps->ska->n > ps->ska->next->n)
+	if (ps->ska->n == ps->maxa && ps->ska->next->next->n == ps->mina)
 	{
 		sa(ps, 0);
-		if (ps->ska->next->n > ps->ska->next->next->n)
-		{
-			rra(ps, 0);
-			if (ps->ska->n > ps->ska->next->n)
-				sa(ps, 0);
-		}
+		rra(ps, 0);
 	}
-	else if (ps->ska->next->n > ps->ska->next->next->n)
+	if (ps->ska->n == ps->maxa && ps->ska->next->n == ps->mina)
+		ra(ps, 0);
+	if (ps->ska->n == ps->mina && ps->ska->next->n == ps->maxa)
 	{
 		sa(ps, 0);
 		ra(ps, 0);
 	}
-	if (ps->ska->n > ps->ska->next->n)
+	if (ps->ska->next->n == ps->mina && ps->ska->next->next->n == ps->maxa)
 		sa(ps, 0);
+	if (ps->ska->next->n == ps->maxa && ps->ska->next->next->n == ps->mina)
+		rra(ps, 0);
 }
 
 void	ckpusha(t_pushsw *ps)
 {
-	int cont;
-	int ret;
+	int	cont;
+	int	ret;
 
 	cont = 0;
 	ret = 0;
@@ -97,20 +105,20 @@ void	ckpusha(t_pushsw *ps)
 		if (ps->skb->n > ps->ska->n && ps->skb->n < ps->ska->next->n)
 		{
 			ret = cont;
-			break;
+			break ;
 		}
 		ps->ska = ps->ska->next;
 	}
 	if (ps->skb->n < ps->ska->n)
 		ret = cont;
-	while(ps->ska->prev)
+	while (ps->ska->prev)
 		ps->ska = ps->ska->prev;
 	ckrxrrx(ps, ps->size_a, ret, 0);
 }
 
 void	puttop(t_pushsw *ps)
 {
-	int cont;
+	int	cont;
 	int	mossom;
 	int	vmossom;
 
@@ -129,9 +137,9 @@ void	puttop(t_pushsw *ps)
 			ps->contm.vrborrrb = ps->contm.rborrrb;
 			vmossom = mossom;
 		}
-		if(ps->skb->next)
+		if (ps->skb->next)
 			ps->skb = ps->skb->next;
 	}
-	while(ps->skb->prev)
+	while (ps->skb->prev)
 		ps->skb = ps->skb->prev;
 }

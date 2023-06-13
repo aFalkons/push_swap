@@ -6,13 +6,13 @@
 /*   By: afalconi <afalconi@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/05/22 05:58:08 by afalconi          #+#    #+#             */
-/*   Updated: 2023/06/11 19:46:32 by afalconi         ###   ########.fr       */
+/*   Updated: 2023/06/13 19:52:26 by afalconi         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "push_swap.h"
 
-int		ft_atol(char *str, t_pushsw *ps)
+int	ft_atol(char *str, t_pushsw *ps)
 {
 	int				seg;
 	long long		som;
@@ -37,8 +37,8 @@ int		ft_atol(char *str, t_pushsw *ps)
 		i++;
 	}
 	if (som > INT_MAX || som < INT_MIN)
-		ft_exit("Error\nbad input", ps, 1);
-	return(som * seg);
+		ft_exit("Error\n", ps, 1);
+	return (som * seg);
 }
 
 void	ft_exit(char *str, t_pushsw *ps, int f)
@@ -49,14 +49,15 @@ void	ft_exit(char *str, t_pushsw *ps, int f)
 		ft_free(ps);
 	exit(f);
 }
+
 int	ft_strlen(char *str)
 {
-	int i;
+	int	i;
 
 	i = 0;
-	while(str[i])
+	while (str[i])
 		i++;
-	return(i);
+	return (i);
 }
 
 void	*ft_malloc(int bytes)
@@ -68,8 +69,11 @@ void	*ft_malloc(int bytes)
 		exit(0);
 	return (var);
 }
+
 void	ft_free(t_pushsw *ps)
 {
+	while (ps->ska->next)
+		ps->ska = ps->ska->next;
 	if (ps->ska->prev != NULL)
 	{
 		while (ps->ska->next)

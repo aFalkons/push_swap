@@ -6,7 +6,7 @@
 /*   By: afalconi <afalconi@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/06/10 15:49:36 by afalconi          #+#    #+#             */
-/*   Updated: 2023/06/11 19:18:50 by afalconi         ###   ########.fr       */
+/*   Updated: 2023/06/13 21:38:37 by afalconi         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,12 +14,20 @@
 
 int	main(int ac, char **av)
 {
-	t_ck ck;
+	t_ck	ck;
 
 	if (ac == 1)
-		ft_exit("Error\nbad input\n", NULL);
+		ft_exit("Error\n", NULL);
 	setup(&ck, ac, av);
+	ck.size_b = 0;
+	if (ck.ska->next == NULL)
+	{
+		write(1, "OK\n", 3);
+		exit(0);
+	}
 	cksequesns(&ck);
+	while (ck.ska->prev)
+		ck.ska = ck.ska->prev;
 	ck.mov = get_next_line(0);
 	while (ck.mov)
 	{
@@ -30,8 +38,9 @@ int	main(int ac, char **av)
 	free(ck.mov);
 	ckcomb(&ck);
 	ft_free(&ck);
-	return(0);
+	return (0);
 }
+
 void	ckin(t_ck *ck)
 {
 	char	*posmov[11];
@@ -53,11 +62,11 @@ void	ckin(t_ck *ck)
 	posmov[10] = "pb\n";
 	while (++i < 11)
 	{
-		if(ft_strncmp(ck->mov, posmov[i], ft_strlen(posmov[i])) == 0)
+		if (ft_strncmp(ck->mov, posmov[i], ft_strlen(posmov[i])) == 0)
 			f = exemoves(ck, i);
 	}
 	if (f == 0)
-		ft_exit("Error\nbad input\n", ck);
+		ft_exit("Error\n", ck);
 }
 
 int	exemoves(t_ck *ck, int i)
@@ -89,9 +98,11 @@ int	exemoves(t_ck *ck, int i)
 
 void	ckcomb(t_ck *ck)
 {
-	while(ck->ska->next)
+	if (ck->skb != NULL)
+		ft_exit("KO\n", ck);
+	while (ck->ska->next)
 	{
-		if(ck->ska->n < ck->ska->next->n)
+		if (ck->ska->n < ck->ska->next->n)
 			ck->ska = ck->ska->next;
 		else
 			ft_exit("KO\n", ck);
@@ -101,25 +112,25 @@ void	ckcomb(t_ck *ck)
 
 void	cksequesns(t_ck *ps)
 {
-	int n;
-	int cont;
-	t_moves *ck;
+	int		n;
+	int		cont;
+	t_moves	*ck;
 
-	while(ps->ska->next)
+	while (ps->ska->next)
 	{
 		n = ps->ska->n;
 		cont = 0;
 		ck = ps->ska;
-		while(ck->next)
+		while (ck->next)
 		{
-			if(n == ck->n)
+			if (n == ck->n)
 				cont ++;
 			ck = ck->next;
 		}
-		if(n == ck->n)
+		if (n == ck->n)
 			cont ++;
 		if (cont > 1)
-			ft_exit("Error\nbad input\n", ps);
+			ft_exit("Error\n", ps);
 		ps->ska = ps->ska->next;
 	}
 }

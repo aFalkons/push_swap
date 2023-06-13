@@ -6,14 +6,13 @@
 /*   By: afalconi <afalconi@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/05/22 05:58:08 by afalconi          #+#    #+#             */
-/*   Updated: 2023/06/11 19:46:53 by afalconi         ###   ########.fr       */
+/*   Updated: 2023/06/13 21:51:27 by afalconi         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "checkerh.h"
 
-
-int		ft_atol(char *str, t_ck *ps)
+int	ft_atol(char *str, t_ck *ps)
 {
 	int				seg;
 	long long		som;
@@ -38,8 +37,8 @@ int		ft_atol(char *str, t_ck *ps)
 		i++;
 	}
 	if (som > INT_MAX || som < INT_MIN)
-		ft_exit("Error\nbad input", ps);
-	return(som * seg);
+		ft_exit("Error\n", ps);
+	return (som * seg);
 }
 
 void	ft_exit(char *str, t_ck *ps)
@@ -60,9 +59,10 @@ void	*ft_malloc(int bytes)
 		exit(0);
 	return (var);
 }
+
 void	ft_free(t_ck *ps)
 {
-	if(ps->size_b > 1)
+	if (ps->size_b > 1)
 	{
 		while (ps->skb->next)
 			ps->skb = ps->skb->next;
@@ -77,19 +77,7 @@ void	ft_free(t_ck *ps)
 	}
 	if (ps->size_b == 1)
 		free(ps->skb);
-	while (ps->ska->next)
-		ps->ska = ps->ska->next;
-	if (ps->ska->prev != NULL)
-	{
-		ps->ska = ps->ska->prev;
-		while (ps->ska->prev)
-		{
-			free(ps->ska->next);
-			ps->ska = ps->ska->prev;
-		}
-		free(ps->ska->next);
-	}
-	free(ps->ska);
+	ft_free2(ps);
 }
 
 int	ft_strncmp(char *s1, char *s2, size_t n)

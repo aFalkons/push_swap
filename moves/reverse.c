@@ -6,31 +6,15 @@
 /*   By: afalconi <afalconi@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/05/22 05:48:00 by afalconi          #+#    #+#             */
-/*   Updated: 2023/06/07 20:02:39 by afalconi         ###   ########.fr       */
+/*   Updated: 2023/06/13 21:00:41 by afalconi         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../moves.h"
 
-void	rra_sav(t_pushsw *ps, int f)
-{
-	t_moves	*last;
-
-	last = ps->ska;
-	while(last->next)
-	{
-		last = last->next;
-	}
-	last->prev->next = NULL;
-	last->prev = NULL;
-	last->next = ps->ska;
-	ps->ska->prev = last;
-	ps->ska = last;
-}
-
 void	rra(t_pushsw *ps, int f)
 {
-	t_moves *temp;
+	t_moves	*temp;
 
 	while (ps->ska->next)
 		ps->ska = ps->ska->next;
@@ -45,9 +29,10 @@ void	rra(t_pushsw *ps, int f)
 	if (f == 0)
 		write(1, "rra\n", 4);
 }
+
 void	rrb(t_pushsw *ps, int f)
 {
-	t_moves *temp;
+	t_moves	*temp;
 
 	while (ps->skb->next)
 		ps->skb = ps->skb->next;

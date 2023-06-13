@@ -6,7 +6,7 @@
 /*   By: afalconi <afalconi@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/05/22 05:48:02 by afalconi          #+#    #+#             */
-/*   Updated: 2023/06/05 17:24:01 by afalconi         ###   ########.fr       */
+/*   Updated: 2023/06/13 20:59:49 by afalconi         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -26,8 +26,8 @@ void	pb(t_pushsw *ps, int f)
 		ps->skb->prev = ps->ska;
 	ps->skb = ps->ska;
 	ps->ska = tmp;
- 	ps->size_b ++;
- 	ps->size_a --;
+	ps->size_b ++;
+	ps->size_a --;
 	if (f == 0)
 		write(1, "pb\n", 3);
 }
@@ -46,8 +46,8 @@ void	pa(t_pushsw	*ps, int f)
 		ps->ska->prev = ps->skb;
 	ps->ska = ps->skb;
 	ps->skb = tmp;
- 	ps->size_a ++;
- 	ps->size_b --;
+	ps->size_a ++;
+	ps->size_b --;
 	if (f == 0)
 		write(1, "pa\n", 3);
 }

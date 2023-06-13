@@ -6,7 +6,7 @@
 /*   By: afalconi <afalconi@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/06/10 16:39:32 by afalconi          #+#    #+#             */
-/*   Updated: 2023/06/11 19:12:48 by afalconi         ###   ########.fr       */
+/*   Updated: 2023/06/13 21:51:46 by afalconi         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -20,7 +20,7 @@
 # include <unistd.h>
 # include <string.h>
 # include <limits.h>
-#include "gnl/get_next_line.h"
+# include "gnl/get_next_line.h"
 
 typedef struct s_moves {
 	int				n;
@@ -63,6 +63,6 @@ void			ckin(t_ck *ck);
 int				exemoves(t_ck *ck, int i);
 void			ckcomb(t_ck *ck);
 void			cksequesns(t_ck *ps);
-
+void			ft_free2(t_ck *ps);
 
 #endif

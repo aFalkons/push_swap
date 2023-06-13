@@ -6,19 +6,23 @@
 /*   By: afalconi <afalconi@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/05/22 05:42:17 by afalconi          #+#    #+#             */
-/*   Updated: 2023/06/11 19:25:23 by afalconi         ###   ########.fr       */
+/*   Updated: 2023/06/13 19:54:24 by afalconi         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "push_swap.h"
 
-int main(int ac, char **av)
+int	main(int ac, char **av)
 {
-	t_pushsw ps;
+	t_pushsw	ps;
 
 	if (ac == 1)
-		ft_exit("Error\nbad input\n", NULL, 1);
+		ft_exit("Error\n", NULL, 1);
 	setup(&ps, ac, av);
+	ps.skb = NULL;
+	ps.size_b = 0;
+	if (ps.ska->next == NULL)
+		ft_exit(NULL, NULL, 0);
 	cksequesns(&ps);
 	if (ps.size_a == 2 && ps.ska->n > ps.ska->next->n)
 		ra(&ps, 0);
@@ -36,7 +40,7 @@ int main(int ac, char **av)
 
 void	ckjastsort(t_pushsw *ps)
 {
-	int n;
+	int	n;
 
 	n = ps->ska->n;
 	ps->ska = ps->ska->next;
@@ -44,7 +48,7 @@ void	ckjastsort(t_pushsw *ps)
 	{
 		if (n > ps->ska->n)
 		{
-			while(ps->ska->prev)
+			while (ps->ska->prev)
 				ps->ska = ps->ska->prev;
 			return ;
 		}
@@ -53,38 +57,38 @@ void	ckjastsort(t_pushsw *ps)
 	}
 	if (n > ps->ska->n)
 	{
-		while(ps->ska->prev)
+		while (ps->ska->prev)
 			ps->ska = ps->ska->prev;
 		return ;
 	}
-	while(ps->ska->prev)
+	while (ps->ska->prev)
 		ps->ska = ps->ska->prev;
 	ft_exit(NULL, ps, 0);
 }
 
 void	cksequesns(t_pushsw *ps)
 {
-	int n;
-	int cont;
-	t_moves *ck;
+	int		n;
+	int		cont;
+	t_moves	*ck;
 
-	while(ps->ska->next)
+	while (ps->ska->next)
 	{
 		n = ps->ska->n;
 		cont = 0;
 		ck = ps->ska;
-		while(ck->next)
+		while (ck->next)
 		{
-			if(n == ck->n)
+			if (n == ck->n)
 				cont ++;
 			ck = ck->next;
 		}
-		if(n == ck->n)
+		if (n == ck->n)
 			cont ++;
 		if (cont > 1)
-			ft_exit("Error\nbad input\n", ps, 1);
+			ft_exit("Error\n", ps, 1);
 		ps->ska = ps->ska->next;
 	}
-	while(ps->ska->prev)
+	while (ps->ska->prev)
 		ps->ska = ps->ska->prev;
 }

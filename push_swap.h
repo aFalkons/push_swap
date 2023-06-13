@@ -6,7 +6,7 @@
 /*   By: afalconi <afalconi@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/04/21 01:38:31 by afalconi          #+#    #+#             */
-/*   Updated: 2023/06/11 19:09:44 by afalconi         ###   ########.fr       */
+/*   Updated: 2023/06/13 19:58:45 by afalconi         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,7 +19,7 @@
 # include <sys/types.h>
 # include <unistd.h>
 # include <string.h>
-#include "moves.h"
+# include "moves.h"
 
 void			setup(t_pushsw *ps, int ac, char **av);
 int				ft_atol(char *str, t_pushsw *ps);
@@ -49,6 +49,6 @@ void			mid2(t_pushsw *ps, t_moves *ck, int cont);
 void			ckrxrrx(t_pushsw *ps, int size, int ret, int f);
 void			ckjastsort(t_pushsw *ps);
 void			cksequesns(t_pushsw *ps);
-
+void			sort5(t_pushsw *ps);
 
 #endif

@@ -6,7 +6,7 @@
 /*   By: afalconi <afalconi@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/05/22 05:48:09 by afalconi          #+#    #+#             */
-/*   Updated: 2023/06/10 17:43:49 by afalconi         ###   ########.fr       */
+/*   Updated: 2023/06/13 21:00:54 by afalconi         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,7 +14,7 @@
 
 void	ra(t_pushsw *ps, int f)
 {
-	t_moves *temp;
+	t_moves	*temp;
 
 	temp = ps->ska;
 	ps->ska->next->prev = NULL;
@@ -28,9 +28,10 @@ void	ra(t_pushsw *ps, int f)
 	if (f == 0)
 		write(1, "ra\n", 3);
 }
+
 void	rb(t_pushsw *ps, int f)
 {
-	t_moves *temp;
+	t_moves	*temp;
 
 	temp = ps->skb;
 	ps->skb->next->prev = NULL;

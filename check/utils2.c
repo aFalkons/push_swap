@@ -6,7 +6,7 @@
 /*   By: afalconi <afalconi@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/06/04 19:14:55 by afalconi          #+#    #+#             */
-/*   Updated: 2023/06/10 17:30:31 by afalconi         ###   ########.fr       */
+/*   Updated: 2023/06/13 21:52:01 by afalconi         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -59,7 +59,6 @@ char	**ft_split(char *s, char c)
 	return (ret);
 }
 
-
 char	*ft_substr(char *s, int start, size_t len)
 {
 	size_t	i;
@@ -86,4 +85,26 @@ char	*ft_substr(char *s, int start, size_t len)
 	}
 	str[j] = '\0';
 	return (str);
+}
+
+void	ft_free2(t_ck *ps)
+{
+	if (ps->size_a > 1)
+	{
+		while (ps->ska->next)
+			ps->ska = ps->ska->next;
+		if (ps->ska->prev != NULL)
+		{
+			ps->ska = ps->ska->prev;
+			while (ps->ska->prev)
+			{
+				free(ps->ska->next);
+				ps->ska = ps->ska->prev;
+			}
+			free(ps->ska->next);
+		}
+		free(ps->ska);
+	}
+	if (ps->size_a == 1)
+		free(ps->ska);
 }

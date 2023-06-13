@@ -6,7 +6,7 @@
 /*   By: afalconi <afalconi@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/06/04 19:14:55 by afalconi          #+#    #+#             */
-/*   Updated: 2023/06/05 19:12:42 by afalconi         ###   ########.fr       */
+/*   Updated: 2023/06/13 19:52:40 by afalconi         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -58,7 +58,6 @@ char	**ft_split(char *s, char c)
 	ret[i] = 0;
 	return (ret);
 }
-
 
 char	*ft_substr(char *s, int start, size_t len)
 {
