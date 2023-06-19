@@ -6,7 +6,7 @@
 /*   By: afalconi <afalconi@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/05/24 21:04:57 by afalconi          #+#    #+#             */
-/*   Updated: 2023/06/13 21:40:05 by afalconi         ###   ########.fr       */
+/*   Updated: 2023/06/19 11:54:37 by afalconi         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -80,9 +80,8 @@ void	ckinput2(char **av, t_ck *ps, int f)
 		{
 			if (!(av[i][j] >= 48 && av[i][j] <= 57))
 			{
-				if ((ft_strlen(av[i]) < 2)
-					|| !(av[i][j] == '-' && av[i][j + 1] > 48
-					&& av[i][j + 1] < 57))
+				if (!(av[i][j] == '-' && av[i][j + 1] > 48
+					&& av[i][j + 1] < 57 && j == 0))
 				{
 					if (f == 1)
 						freedellacosa(av);

@@ -6,7 +6,7 @@
 #    By: afalconi <afalconi@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2023/05/22 05:41:09 by afalconi          #+#    #+#              #
-#    Updated: 2023/06/10 23:10:29 by afalconi         ###   ########.fr        #
+#    Updated: 2023/06/19 11:59:05 by afalconi         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -44,7 +44,9 @@ RM = rm -rf
 NAME = push_swap
 NAMEB = checker
 
-all : $(NAME)
+name : $(NAME)
+
+all : $(NAME) $(NAMEB)
 
 $(NAME) : $(OBJ)
 	 $(CC) $(FLAGS) $(OBJ) -o $(NAME)
